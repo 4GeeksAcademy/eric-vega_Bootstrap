@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram Post</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome para los iconos -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Estilo para la barra superior */
+    .navbar {
+      background-color: #f8f9fa;
+      border-bottom: 1px solid #e1e1e1;
+    }
+
+    /* Estilo para el contenedor del post */
+    .post-container {
+      max-width: 600px;
+      margin: 20px auto;
+      border: 1px solid #e1e1e1;
+      border-radius: 8px green;
+      background-color: #fff;
+    }
+
+    /* Estilo para el pie del post */
+    .post-footer {
+      padding: 15px;
+    }
+
+    /* Botones de cambio de vista */
+    .view-button {
+      margin-right: 10px;
+    }
+
+    /* Espaciado entre imágenes */
+    .post-image {
+      margin-bottom: 15px;
+    }
+
+    /* Botones activos */
+    .active-view {
+      background-color: blue !important;
+      color: white !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegación superior -->
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" width="30" height="30" alt="Instagram logo">
+      Instagram
+    </a>
+    <div class="ml-auto">
+      <!-- Botón que abre el modal -->
+      <button class="btn btn-success" data-toggle="modal" data-target="#createPostModal">Create a new post</button>
+      <button class="btn btn-outline-secondary">⚙️</button>
+    </div>
+  </nav>
+
+  <!-- Botones de cambio de vista -->
+  <div class="container text-center mt-4">
+    <button class="btn btn-outline-primary view-button active-view" id="view1x1" title="1x1 View">
+        <i class="fas fa-square"></i> <!-- Icono para vista 1x1 -->
+      </button>
+      <button class="btn btn-outline-primary view-button" id="view3x3" title="3x3 View">
+        <i class="fas fa-th"></i> <!-- Icono para vista 3x3 -->
+      </button>
+  </div>
+
+  <!-- Contenedor de imágenes que cambia entre 1x1 y 3x3 -->
+  <div class="container mt-4">
+    <div class="row" id="imageGrid">
+      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 1"></div>
+      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 2"></div>
+      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 3"></div>
+      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 4"></div>
+      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 5"></div>
+      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 6"></div>
+      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 7"></div>
+      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 8"></div>
+      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 9"></div>
+    </div>
+  </div>
+
+  <!-- Modal para crear un nuevo post -->
+  <div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="createPostModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="createPostModalLabel">Create a new post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario de nuevo post -->
+          <form>
+            <div class="form-group">
+              <label for="postTitle">Title</label>
+              <input type="text" class="form-control" id="postTitle" placeholder="Enter post title">
+            </div>
+            <div class="form-group">
+              <label for="postImage">Upload Image</label>
+              <input type="file" class="form-control-file" id="postImage">
+            </div>
+            <div class="form-group">
+              <label for="postDescription">Description</label>
+              <textarea class="form-control" id="postDescription" rows="3" placeholder="Enter post description"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Post</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Cambiar entre vistas 1x1 y 3x3
+    document.getElementById('view1x1').addEventListener('click', function() {
+      // Cambiar las imágenes a formato 1x1 (vertical)
+      var images = document.getElementById('imageGrid').children;
+      for (var i = 0; i < images.length; i++) {
+        images[i].classList.remove('col-md-4');
+        images[i].classList.add('col-12');
+      }
+
+      // Estilo para el botón activo
+      document.getElementById('view1x1').classList.add('active-view');
+      document.getElementById('view3x3').classList.remove('active-view');
+    });
+
+    document.getElementById('view3x3').addEventListener('click', function() {
+      // Cambiar las imágenes a formato 3x3
+      var images = document.getElementById('imageGrid').children;
+      for (var i = 0; i < images.length; i++) {
+        images[i].classList.remove('col-12');
+        images[i].classList.add('col-md-4');
+      }
+
+      // Estilo para el botón activo
+      document.getElementById('view3x3').classList.add('active-view');
+      document.getElementById('view1x1').classList.remove('active-view');
+    });
+  </script>
+</body>
+</html>
