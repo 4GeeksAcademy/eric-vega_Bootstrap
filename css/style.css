@@ -1,0 +1,35 @@
+/* Estilo para la barra superior */
+.navbar {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e1e1e1;
+  }
+
+  /* Estilo para el contenedor del post */
+  .post-container {
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px green;
+    background-color: #fff;
+  }
+
+  /* Estilo para el pie del post */
+  .post-footer {
+    padding: 15px;
+  }
+
+  /* Botones de cambio de vista */
+  .view-button {
+    margin-right: 10px;
+  }
+
+  /* Espaciado entre imágenes */
+  .post-image {
+    margin-bottom: 15px;
+  }
+
+  /* Botones activos */
+  .active-view {
+    background-color: blue !important;
+    color: white !important;
+  }

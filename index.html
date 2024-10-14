@@ -1,49 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instagram Post</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome para los iconos -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-  <style>
-    /* Estilo para la barra superior */
-    .navbar {
-      background-color: #f8f9fa;
-      border-bottom: 1px solid #e1e1e1;
-    }
-
-    /* Estilo para el contenedor del post */
-    .post-container {
-      max-width: 600px;
-      margin: 20px auto;
-      border: 1px solid #e1e1e1;
-      border-radius: 8px green;
-      background-color: #fff;
-    }
-
-    /* Estilo para el pie del post */
-    .post-footer {
-      padding: 15px;
-    }
-
-    /* Botones de cambio de vista */
-    .view-button {
-      margin-right: 10px;
-    }
-
-    /* Espaciado entre imágenes */
-    .post-image {
-      margin-bottom: 15px;
-    }
-
-    /* Botones activos */
-    .active-view {
-      background-color: blue !important;
-      color: white !important;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Post</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para los iconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="script.js"></script>
 </head>
 <body>
 
@@ -56,7 +21,20 @@
     <div class="ml-auto">
       <!-- Botón que abre el modal -->
       <button class="btn btn-success" data-toggle="modal" data-target="#createPostModal">Create a new post</button>
-      <button class="btn btn-outline-secondary">⚙️</button>
+        <!-- Dropdown de configuración -->
+        <div class="dropdown d-inline">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="settingsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ⚙️
+            </button>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="settingsDropdown">
+              <a class="dropdown-item" href="#">Option 1</a>
+              <a class="dropdown-item" href="#">Option 2</a>
+              <a class="dropdown-item" href="#">Option 3</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Another option</a>
+            </div>
+          </div>
+        </div>
     </div>
   </nav>
 
@@ -120,37 +98,7 @@
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <script>
-    // Cambiar entre vistas 1x1 y 3x3
-    document.getElementById('view1x1').addEventListener('click', function() {
-      // Cambiar las imágenes a formato 1x1 (vertical)
-      var images = document.getElementById('imageGrid').children;
-      for (var i = 0; i < images.length; i++) {
-        images[i].classList.remove('col-md-4');
-        images[i].classList.add('col-12');
-      }
 
-      // Estilo para el botón activo
-      document.getElementById('view1x1').classList.add('active-view');
-      document.getElementById('view3x3').classList.remove('active-view');
-    });
-
-    document.getElementById('view3x3').addEventListener('click', function() {
-      // Cambiar las imágenes a formato 3x3
-      var images = document.getElementById('imageGrid').children;
-      for (var i = 0; i < images.length; i++) {
-        images[i].classList.remove('col-12');
-        images[i].classList.add('col-md-4');
-      }
-
-      // Estilo para el botón activo
-      document.getElementById('view3x3').classList.add('active-view');
-      document.getElementById('view1x1').classList.remove('active-view');
-    });
-  </script>
 </body>
 </html>
