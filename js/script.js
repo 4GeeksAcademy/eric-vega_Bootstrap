@@ -1,27 +1,40 @@
+// Obtener los botones de vista y el contenedor de imágenes
+const view1x1Button = document.getElementById('view1x1');
+const view3x3Button = document.getElementById('view3x3');
+const imageGrid = document.getElementById('imageGrid');
 
-// Cambiar entre vistas 1x1 y 3x3
-document.getElementById('view1x1').addEventListener('click', function() {
-  // Cambiar las imágenes a formato 1x1 (vertical)
-  var images = document.getElementById('imageGrid').children;
-  for (var i = 0; i < images.length; i++) {
-    images[i].classList.remove('col-md-4');
-    images[i].classList.add('col-12');
+// Función para cambiar a vista 1x1 (Por defecto, ya se ven así)
+view1x1Button.addEventListener('click', function() {
+  const images = imageGrid.getElementsByClassName('post-card');
+  for (let i = 0; i < images.length; i++) {
+    images[i].classList.remove('col-md-4'); // Quitar la clase de 3 columnas
+    images[i].classList.add('col-md-12', 'mx-auto'); // Volver a 1x1 con columnas centradas
+    images[i].style.display = 'flex';
+    images[i].style.flexDirection = 'column';
+
+    // Mostrar los títulos, likes, fechas y descripción
+    images[i].querySelector('.card-header').classList.remove('hide-text');
+    images[i].querySelector('.card-body').classList.remove('hide-text');
   }
-
-  // Estilo para el botón activo
-  document.getElementById('view1x1').classList.add('active-view');
-  document.getElementById('view3x3').classList.remove('active-view');
+  view1x1Button.classList.add('active-view');
+  view3x3Button.classList.remove('active-view');
 });
 
-document.getElementById('view3x3').addEventListener('click', function() {
-  // Cambiar las imágenes a formato 3x3
-  var images = document.getElementById('imageGrid').children;
-  for (var i = 0; i < images.length; i++) {
-    images[i].classList.remove('col-12');
-    images[i].classList.add('col-md-4');
-  }
+// Función para cambiar a vista 3x3
+view3x3Button.addEventListener('click', function() {
+  const images = imageGrid.getElementsByClassName('post-card');
+  for (let i = 0; i < images.length; i++) {
+    images[i].classList.remove('col-md-12', 'mx-auto'); // Quitar la clase de 1x1
+    images[i].classList.add('col-md-4'); // Añadir clase de 3 columnas para vista 3x3
+    images[i].style.display = 'block';
 
-  // Estilo para el botón activo
-  document.getElementById('view3x3').classList.add('active-view');
-  document.getElementById('view1x1').classList.remove('active-view');
+    // Ocultar los títulos, likes, fechas y descripción
+    images[i].querySelector('.card-header').classList.add('hide-text');
+    images[i].querySelector('.card-body').classList.add('hide-text');
+    images[i].querySelector('img').style.marginBottom = '0px';
+    images[i].querySelector('img').style.height = '240px';
+  }
+  view3x3Button.classList.add('active-view');
+  view1x1Button.classList.remove('active-view');
 });
+

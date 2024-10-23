@@ -7,12 +7,13 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome para los iconos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Vincula el archivo de estilos -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <!-- Barra de navegación superior -->
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">
       <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" width="30" height="30" alt="Instagram logo">
       Instagram
@@ -20,6 +21,7 @@
     <div class="ml-auto">
       <!-- Botón que abre el modal -->
       <button class="btn btn-success" data-toggle="modal" data-target="#createPostModal">Create a new post</button>
+      
         <!-- Dropdown de configuración -->
         <div class="dropdown d-inline">
             <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="settingsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -34,35 +36,151 @@
             </div>
           </div>
         </div>
-    </div>
   </nav>
 
   <!-- Botones de cambio de vista -->
   <div class="container text-center mt-4">
     <button class="btn btn-outline-primary view-button active-view" id="view1x1" title="1x1 View">
-        <i class="fas fa-square"></i> <!-- Icono para vista 1x1 -->
-      </button>
-      <button class="btn btn-outline-primary view-button" id="view3x3" title="3x3 View">
-        <i class="fas fa-th"></i> <!-- Icono para vista 3x3 -->
-      </button>
+        <i class="fas fa-square"></i> 
+    </button>
+    <button class="btn btn-outline-primary view-button" id="view3x3" title="3x3 View">
+        <i class="fas fa-th"></i>
+    </button>
   </div>
 
   <!-- Contenedor de imágenes que cambia entre 1x1 y 3x3 -->
   <div class="container mt-4">
-    <div class="row" id="imageGrid">
-      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 1"></div>
-      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 2"></div>
-      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 3"></div>
-      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 4"></div>
-      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 5"></div>
-      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 6"></div>
-      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 7"></div>
-      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 8"></div>
-      <div class="col-12 post-image"><img src="https://via.placeholder.com/600x400" class="img-fluid" alt="Image 9"></div>
-    </div>
-  </div>
+    <div class="row mt-4" id="imageGrid">
+      <!-- Post 1 -->
+      <div class="col-md-12 mx-auto post-card">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="card-title mb-0">My Crazy Dog Spark!</h5>
+            <span>08/26</span>
+          </div>
+          <img src="img/img1.jpg" class="card-img-top" alt="Image 1">
+          <div class="card-body">
+            <p><strong>204 Likes</strong></p>
+            <p>This is an example of a very good photo that you can post on Instagram</p>
+          </div>
+        </div>
+      </div>
 
-  <!-- Modal para crear un nuevo post -->
+      <!-- Post 2 -->
+      <div class="col-md-12 mx-auto post-card">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="card-title mb-0">My Crazy Dog Spark!</h5>
+            <span>01/21</span>
+          </div>
+          <img src="img/img2.jpg" class="card-img-top" alt="Image 2">
+          <div class="card-body">
+            <p><strong>150 Likes</strong></p>
+            <p>This is an example of a very good photo that you can post on Instagram</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="col-md-12 mx-auto post-card">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="card-title mb-0">My Crazy Dog Spark!</h5>
+            <span>01/21</span>
+          </div>
+          <img src="img/img3.jpg" class="card-img-top" alt="Image 3">
+          <div class="card-body">
+            <p><strong>300 Likes</strong></p>
+            <p>This is an example of a very good photo that you can post on Instagram</p>
+          </div>
+        </div>
+      </div>
+      <!-- Post 4 -->
+      <div class="col-md-12 mx-auto post-card">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="card-title mb-0">My Crazy Dog Spark!</h5>
+            <span>01/21</span>
+          </div>
+          <img src="img/img4.jpg" class="card-img-top" alt="Image 3">
+          <div class="card-body">
+            <p><strong>300 Likes</strong></p>
+            <p>This is an example of a very good photo that you can post on Instagram</p>
+          </div>
+        </div>
+      </div>
+      <!-- Post 5 -->
+      <div class="col-md-12 mx-auto post-card">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="card-title mb-0">My Crazy Dog Spark!</h5>
+            <span>01/21</span>
+          </div>
+          <img src="img/img5.jpg" class="card-img-top" alt="Image 3">
+          <div class="card-body">
+            <p><strong>300 Likes</strong></p>
+            <p>This is an example of a very good photo that you can post on Instagram</p>
+          </div>
+        </div>
+      </div>
+      <!-- Post 6 -->
+      <div class="col-md-12 mx-auto post-card">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="card-title mb-0">My Crazy Dog Spark!</h5>
+            <span>01/21</span>
+          </div>
+          <img src="img/img6.jpg" class="card-img-top" alt="Image 3">
+          <div class="card-body">
+            <p><strong>300 Likes</strong></p>
+            <p>This is an example of a very good photo that you can post on Instagram</p>
+          </div>
+        </div>
+      </div>
+      <!-- Post 7 -->
+      <div class="col-md-12 mx-auto post-card">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="card-title mb-0">My Crazy Dog Spark!</h5>
+            <span>01/21</span>
+          </div>
+          <img src="img/img7.jpg" class="card-img-top" alt="Image 3">
+          <div class="card-body">
+            <p><strong>300 Likes</strong></p>
+            <p>This is an example of a very good photo that you can post on Instagram</p>
+          </div>
+        </div>
+      </div>
+      <!-- Post 8 -->
+      <div class="col-md-12 mx-auto post-card">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="card-title mb-0">My Crazy Dog Spark!</h5>
+            <span>01/21</span>
+          </div>
+          <img src="img/img8.jpg" class="card-img-top" alt="Image 3">
+          <div class="card-body">
+            <p><strong>300 Likes</strong></p>
+            <p>This is an example of a very good photo that you can post on Instagram</p>
+          </div>
+        </div>
+      </div>
+      <!-- Post 9 -->
+      <div class="col-md-12 mx-auto post-card">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between">
+            <h5 class="card-title mb-0">My Crazy Dog Spark!</h5>
+            <span>01/21</span>
+          </div>
+          <img src="img/img9.jpg" class="card-img-top" alt="Image 3">
+          <div class="card-body">
+            <p><strong>300 Likes</strong></p>
+            <p>This is an example of a very good photo that you can post on Instagram</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal para crear un nuevo post -->
   <div class="modal fade" id="createPostModal" tabindex="-1" aria-labelledby="createPostModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -94,14 +212,15 @@
           <button type="button" class="btn btn-primary">Post</button>
         </div>
       </div>
-    </div>
   </div>
 
-  <script src="js/script.js"></script>
+  <!-- Scripts de Bootstrap y Font Awesome -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+  <!-- Vincula el archivo de JavaScript -->
+  <script src="js/script.js"></script>
 
 </body>
 </html>
